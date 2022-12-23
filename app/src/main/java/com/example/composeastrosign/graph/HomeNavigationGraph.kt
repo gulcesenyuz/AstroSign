@@ -11,7 +11,7 @@ import com.example.composeastrosign.screens.details.DetailsScreen
 import com.example.composeastrosign.screens.home.HomeScreen
 
 @Composable
-fun HomeNavigationGraph(navController: NavHostController) {
+fun HomeNavigationGraph(navController: NavHostController, tabPage: String) {
     NavHost(
         navController = navController,
         route = Graph.HOME,
@@ -19,6 +19,7 @@ fun HomeNavigationGraph(navController: NavHostController) {
     ) {
         composable(route = BottomBarScreen.Home.route) {
             HomeScreen(
+                tabPage=tabPage,
                 name = BottomBarScreen.Home.route,
                 onClick = {
                     navController.navigate(Graph.DETAILS)

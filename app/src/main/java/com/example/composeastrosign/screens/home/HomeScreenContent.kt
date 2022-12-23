@@ -13,6 +13,7 @@ import androidx.compose.ui.text.font.FontWeight
 
 @Composable
 fun HomeScreenContent(
+    tabPage: String,
     onClick: () -> Unit,
 ) {
     Column(
@@ -22,7 +23,7 @@ fun HomeScreenContent(
     ) {
         Text(
             modifier = Modifier.clickable { onClick() },
-            text = "Details",
+            text = tabPage,
             fontSize = MaterialTheme.typography.h3.fontSize,
             fontWeight = FontWeight.Bold
         )
