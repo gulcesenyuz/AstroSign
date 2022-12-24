@@ -1,8 +1,6 @@
 package com.example.composeastrosign.graph
 
-import android.graphics.drawable.Icon
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -12,29 +10,42 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.composeastrosign.screens.home.MainScreen
+import androidx.navigation.navArgument
+import com.example.composeastrosign.ui.screens.details.DetailsScreen
+import com.example.composeastrosign.ui.screens.home.HomeScreen
 
 @Composable
-fun RootNavigationGraph(navController: NavHostController) {
-    NavHost(navController = navController, route = Graph.ROOT, startDestination = Graph.HOME) {
-        composable(route = Graph.HOME) {
-            MainScreen()
+fun RootNavigationGraph(
+    navController: NavHostController,
+) {
+    NavHost(navController = navController, startDestination = "home") {
+        composable(route = "home") {
+            HomeScreen(
+                navController = navController
+            )
+        }
+        composable(
+            route = "details/{day}/{sign}/{icon}",
+            arguments = listOf(
+                navArgument(name = "day") { NavType.StringType },
+                navArgument(name = "sign") { NavType.StringType },
+                navArgument(name = "icon") { NavType.StringType },
+            )
+        ) {backStackEntry ->
+            DetailsScreen(
+                day = backStackEntry.arguments?.getString("sign")!!,
+                sign = backStackEntry.arguments?.getString("day")!!,
+                icon = backStackEntry.arguments?.getString("icon")!!,
+            )
         }
     }
-}
-
-object Graph {
-    const val ROOT = "root_graph"
-    const val HOME = "home_graph"
-    const val DETAILS = "details_graph"
 }
 
 
@@ -53,7 +64,7 @@ fun TabHome(selectedTabIndex: Int, onSelectedTab: (TabPage) -> Unit) {
         backgroundColor = Color.White,
         indicator = { TabIndicator(tabPosition = it, index = selectedTabIndex) }
 
-        ) {
+    ) {
         TabPage.values().forEachIndexed { index, tabPage ->
             Tab(
                 selected = index == selectedTabIndex,

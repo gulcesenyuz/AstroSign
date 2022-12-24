@@ -1,32 +1,26 @@
-package com.example.composeastrosign
+package com.example.composeastrosign.graph
 
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.ui.graphics.vector.ImageVector
 
-sealed class BottomBarScreen(
+sealed class Screens(
     val route: String,
     val title: String,
     val icon: ImageVector
 ) {
-    object Home : BottomBarScreen(
+    object Home : Screens(
         route = "HOME",
         title = "HOME",
         icon = Icons.Default.Home
     )
 
-    object Profile : BottomBarScreen(
-        route = "PROFILE",
-        title = "PROFILE",
+    object Details : Screens(
+        route = "DETAILS",
+        title = "DETAILS",
         icon = Icons.Default.Person
     )
 
-    object Settings : BottomBarScreen(
-        route = "SETTINGS",
-        title = "SETTINGS",
-        icon = Icons.Default.Settings
-    )
 }
