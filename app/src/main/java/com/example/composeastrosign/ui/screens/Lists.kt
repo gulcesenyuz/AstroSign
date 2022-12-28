@@ -1,6 +1,8 @@
 package com.example.composeastrosign.ui.screens
 
+import androidx.compose.ui.graphics.Color
 import com.example.composeastrosign.R
+import com.example.composeastrosign.ui.theme.*
 
 
 var signList = listOf(
@@ -18,7 +20,7 @@ var signList = listOf(
     "Pisces"
 )
 
-var dayList = listOf("today", "yesterday", "tomorrow")
+var dayList = listOf("Today", "Yesterday", "Tomorrow")
 
 var signIconList = listOf(
     R.drawable.ic_aries,
@@ -33,4 +35,8 @@ var signIconList = listOf(
     R.drawable.ic_capricorn,
     R.drawable.ic_aquarius,
     R.drawable.ic_pisces
+)
+
+var colorList = listOf(
+    Brown, Silver, Copper, Orchid, ShadowBlack, NavyBlue, Purple, Green, Pink, Blue
 )

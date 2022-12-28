@@ -32,7 +32,6 @@ fun HomeScreen(
                 }
             )
             HomeScreenContent(menuList = vm.menuList, tabPage = tabPage.name, navController = navController)
-
         }
 
     }

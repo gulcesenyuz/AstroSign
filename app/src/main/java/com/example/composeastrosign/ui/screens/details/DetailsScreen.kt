@@ -30,7 +30,7 @@ fun DetailsScreen(
         }
     }
     if(vm.list.value.data.description.isNotBlank()){
-        DetailsScreenContent(vm.list.value.data,icon.toInt(),sign)
+        DetailsScreenContent(vm.list.value.data,icon.toInt(),sign,day)
 
     }
 

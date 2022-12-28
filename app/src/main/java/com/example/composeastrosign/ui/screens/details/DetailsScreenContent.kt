@@ -14,10 +14,13 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.composeastrosign.data.model.ZodiacSignModel
+import com.example.composeastrosign.ui.screens.components.colorInfo
+import com.example.composeastrosign.ui.screens.components.dayListRow
 
 @Composable
-fun DetailsScreenContent(data: ZodiacSignModel, icon: Int, sign: String) {
+fun DetailsScreenContent(data: ZodiacSignModel, icon: Int, sign: String, day: String) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -59,22 +62,28 @@ fun DetailsScreenContent(data: ZodiacSignModel, icon: Int, sign: String) {
                         modifier = Modifier.padding(top = 24.dp)
                     )
                 }
-                //Todo tab gelecek
             }
 
         }
+        dayListRow(day)
 
         Box(modifier = Modifier.padding(vertical = 16.dp)) {
             if (!data.description.isNullOrBlank()) {
                 Text(
                     text = data.description,
                     color = Color.LightGray,
-                    fontWeight = FontWeight.Light
+                    fontWeight = FontWeight.Light,
+                    fontSize = 12.sp,
                 )
             } else {
                 Text(text = "Sorry", color = Color.LightGray, fontWeight = FontWeight.Light)
 
             }
         }
+        if (!data.color.isNullOrBlank()) {
+            colorInfo(data.color)
+        }
+
+
     }
 }

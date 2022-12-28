@@ -12,7 +12,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -69,7 +71,7 @@ fun TabHome(selectedTabIndex: Int, onSelectedTab: (TabPage) -> Unit) {
             Tab(
                 selected = index == selectedTabIndex,
                 onClick = { onSelectedTab(tabPage) },
-                text = { Text(text = tabPage.name, color = Color.Gray) },
+                text = { Text(text = tabPage.name, color = Color.Gray, fontSize = 12.sp, fontWeight = FontWeight.Normal) },
             )
         }
 
