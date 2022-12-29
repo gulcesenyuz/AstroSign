@@ -8,11 +8,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
 import com.example.composeastrosign.ui.screens.main.MainViewModel
 
 @Composable
 fun DetailsScreen(
-    sign: String, day: String, icon: String,
+    sign: String, day: String, icon: String,navController: NavHostController
 ) {
     val vm: MainViewModel = hiltViewModel()
     vm.getZodiacSignData(sign, day)
@@ -29,8 +30,8 @@ fun DetailsScreen(
 
         }
     }
-    if(vm.list.value.data.description.isNotBlank()){
-        DetailsScreenContent(vm.list.value.data,icon.toInt(),sign,day)
+    if (vm.list.value.data.description.isNotBlank()) {
+        DetailsScreenContent(vm.list.value.data, icon.toInt(), sign, day, navController)
 
     }
 

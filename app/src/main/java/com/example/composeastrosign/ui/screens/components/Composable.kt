@@ -103,7 +103,7 @@ fun dayListRow(day: String) {
                     modifier = Modifier
                         .padding(8.dp),
                     elevation = 6.dp,
-                    backgroundColor = Color.Red
+                    backgroundColor = Color.Gray
                 )
                 {
                     Text(
@@ -138,7 +138,9 @@ fun dayListRow(day: String) {
 @Composable
 fun colorInfo(color: String) {
     var boxColor: Color = Teal200
-    Row {
+    Row(
+        horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically
+    ) {
         Text(text = "Color: ", fontSize = 12.sp, fontWeight = Bold)
         when (color) {
             "Blue" -> {
@@ -176,8 +178,6 @@ fun colorInfo(color: String) {
                 modifier = Modifier
                     .height(30.dp)
                     .width(30.dp)
-                    .padding(4.dp)
-                    .fillMaxSize()
                     .aspectRatio(1f)
                     .background(boxColor, shape = CircleShape),
             )
@@ -188,5 +188,16 @@ fun colorInfo(color: String) {
 
 }
 
+@Composable
+fun infoRow(luckyNumber: String) {
+    Row(
+        horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(top = 4.dp)
+    ) {
+        Text(text = "Color: ", fontSize = 12.sp, fontWeight = Bold)
+        Text(text = luckyNumber, fontSize = 12.sp, fontWeight = Normal, color = Color.Gray)
+
+    }
+
+}
 
 

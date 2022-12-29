@@ -25,7 +25,7 @@ fun HomeScreen(
 
 
     Scaffold {
-        Column(modifier = Modifier.padding(8.dp, 200.dp, 8.dp, 0.dp)) {
+        Column(modifier = Modifier.padding(8.dp, 16.dp, 8.dp, 0.dp)) {
             TabHome(selectedTabIndex = tabPage.ordinal,
                 onSelectedTab = {
                     tabPage = it

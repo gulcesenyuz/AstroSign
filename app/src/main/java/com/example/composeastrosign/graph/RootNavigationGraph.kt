@@ -42,6 +42,7 @@ fun RootNavigationGraph(
             )
         ) {backStackEntry ->
             DetailsScreen(
+                navController=navController,
                 day = backStackEntry.arguments?.getString("sign")!!,
                 sign = backStackEntry.arguments?.getString("day")!!,
                 icon = backStackEntry.arguments?.getString("icon")!!,
